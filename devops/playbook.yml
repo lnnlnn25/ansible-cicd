@@ -40,7 +40,7 @@
         password: "{{ DOCKERHUB_TOKEN }}"
 
     - name: Pull Nuxt.js Docker image
-      DOCKER_IMAGE:
+      docker_image:
         name: "{{ DOCKER_IMAGE }}"
         source: pull
 
