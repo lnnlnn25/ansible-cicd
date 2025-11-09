@@ -43,6 +43,8 @@
       docker_image:
         name: "{{ DOCKER_IMAGE }}"
         source: pull
+      notify:
+        - Restart Nuxt.js Container
 
     - name: Run Nuxt.js Docker container
       docker_container:
@@ -79,3 +81,7 @@
       service:
         name: nginx
         state: reloaded
+    - name: Restart Nuxt.js Container
+      docker_container:
+        name: "{{ CONTAINER_NAME }}"
+        state: restarted
