@@ -41,6 +41,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
       - name: Set up SSH Agent
         run: |
           echo "$SSH_PRIVATE_KEY" > private.key
