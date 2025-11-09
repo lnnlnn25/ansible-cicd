@@ -42,7 +42,7 @@ jobs:
 
     steps:
       - name: Set up SSH Agent
-        runs: |
+        run: |
           echo "$SSH_PRIVATE_KEY" > private.key
           sudo chmod 400 private.key
           eval "$(ssh-agent -s)"
@@ -53,7 +53,7 @@ jobs:
           ssh-keyscan -H $TARGET_HOST >> ~/.ssh/known_hosts
 
       - name: Setup Ansible
-        runs: |
+        run: |
           sudo apt-get update
           sudo apt-get install -y ansible
 
